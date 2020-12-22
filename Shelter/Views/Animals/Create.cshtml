@@ -1,0 +1,19 @@
+@{
+  Layout = "_Layout";
+}
+
+<h1>Add a dinosaur to be adopted!</h1>
+<h1>Add another test</h1>
+
+@model Shelter.Models.Animal
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(model => model.Type)
+  @Html.TextBoxFor(model => model.Type)
+  @Html.LabelFor(model => model.Gender)
+  @Html.TextBoxFor(model => model.Gender)
+  @Html.LabelFor(model => model.Breed)
+  @Html.TextBoxFor(model => model.Breed)
+  <input type="submit" value="Add dino" />
+}

@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Shelter.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace Shelter.Controllers
 {
@@ -20,5 +21,18 @@ namespace Shelter.Controllers
       return View(model);
     }
 
+    public ActionResult Create()
+    {
+      return View();
+    }
+
+    [HttpPost]
+    public ActionResult Create(Animal animal)
+    {
+      animal.DateOfAdmittance = (DateTime.Now).Date;
+      _db.Animals.Add(animal);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
