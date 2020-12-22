@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Shelter
+namespace Shelter.Controllers
 {
   public class HomeController : Controller
   {
