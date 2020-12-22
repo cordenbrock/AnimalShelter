@@ -1,0 +1,22 @@
+@{
+  Layout = "_Layout";
+}
+
+@using Shelter.Models;
+@model List<Shelter.Models.Animal>;
+
+<h3>Dinosaurs Up for Adoption</h3>
+
+@if (Model.Count == 0)
+{
+  <h3>There are no dinosaurs up for adoption!</h3>
+}
+
+<ul>
+  @foreach (Animal animal in Model)
+  {
+    <li>@Html.ActionLink($"{animal.Type}", "Details", new { id = animal.AnimalId })</li>
+  }
+</ul>
+
+<p>@Html.ActionLink("Add new dinosaur", "Create")</p>

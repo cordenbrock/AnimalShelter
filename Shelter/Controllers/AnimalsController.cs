@@ -14,6 +14,11 @@ namespace Shelter.Controllers
       _db = db;
     }
 
+    public ActionResult Index()
+    {
+      List<Animal> model = _db.Animals.ToList();
+      return View(model);
+    }
 
   }
 }
