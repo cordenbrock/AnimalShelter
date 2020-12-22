@@ -29,10 +29,17 @@ namespace Shelter.Controllers
     [HttpPost]
     public ActionResult Create(Animal animal)
     {
-      animal.DateOfAdmittance = (DateTime.Now).Date;
+      animal.DateOfAdmittance = (DateTime.Now).ToShortDateString();
       _db.Animals.Add(animal);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
+
+    public ActionResult Details(int id)
+    {
+      Animal thisAnimal = _db.Animals.FirstOrDefault(animals => animals.AnimalId == id);
+      return View(thisAnimal);
+    }
+
   }
 }
