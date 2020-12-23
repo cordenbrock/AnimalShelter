@@ -18,7 +18,7 @@ namespace Shelter.Controllers
     public ActionResult Index()
     {
       List<Animal> unsortedModel = _db.Animals.ToList();
-      List<Animal> model = unsortedModel.OrderBy(o => o.Type).ToList();
+      List<Animal> model = unsortedModel.OrderBy(i => i.Type).ToList();
       return View(model);
     }
 
